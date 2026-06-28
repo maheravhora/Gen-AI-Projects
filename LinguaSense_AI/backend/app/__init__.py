@@ -1,0 +1,1 @@
+# LinguaSense AI Backend Application

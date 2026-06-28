@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: linguasense_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - linguasense_data:/app/data
+      - linguasense_uploads:/app/uploads
+    environment:
+      - DEBUG=True
+      - CORS_ORIGINS=*
+      - DB_PATH=/app/data/linguasense.db
+      - UPLOAD_DIR=/app/uploads
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: linguasense_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  linguasense_data:
+  linguasense_uploads:
