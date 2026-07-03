@@ -83,14 +83,14 @@ export default function Hero() {
         >
           <Link
             to="/dashboard"
-            className="group flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[#2563EB] to-[#3B82F6] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#2563EB]/25 transition-all duration-300 hover:shadow-xl hover:shadow-[#2563EB]/30 hover:scale-105 no-underline"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2563EB] to-[#3B82F6] px-8 py-3.5 min-h-[48px] text-base font-semibold text-white shadow-lg shadow-[#2563EB]/25 transition-all duration-300 hover:shadow-xl hover:shadow-[#2563EB]/30 hover:scale-105 no-underline cursor-pointer"
           >
             Get Started
             <HiOutlineArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to="/translate"
-            className="group flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm px-8 py-4 text-base font-semibold text-[#F8FAFC] transition-all duration-300 hover:bg-white/10 hover:scale-105 no-underline"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-8 py-3.5 min-h-[48px] text-base font-semibold text-[#F8FAFC] transition-all duration-300 hover:bg-white/10 hover:scale-105 no-underline cursor-pointer"
           >
             <HiOutlinePlay className="h-5 w-5" />
             Try Demo

@@ -84,9 +84,9 @@ export default function DragDropUpload({ onFileSelect, accept = 'image/*', label
               <button
                 onClick={handleClear}
                 type="button"
-                className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1 text-xs text-[#94A3B8] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors cursor-pointer border-none"
+                className="flex min-h-[36px] items-center gap-1 rounded-lg bg-white/5 px-3 py-1.5 text-xs text-[#94A3B8] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors cursor-pointer border-none"
               >
-                <HiOutlineXMark className="h-3.5 w-3.5" />
+                <HiOutlineXMark className="h-4 w-4" />
                 Remove
               </button>
             </div>

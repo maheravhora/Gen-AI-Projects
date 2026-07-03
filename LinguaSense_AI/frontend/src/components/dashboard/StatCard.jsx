@@ -32,7 +32,7 @@ export default function StatCard({ icon: Icon, value, label, suffix = '', color 
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
       whileHover={{ y: -4, scale: 1.02 }}
-      className="group relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-6 overflow-hidden"
+      className="group relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-6 shadow-md shadow-black/20 overflow-hidden"
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
       <div className="relative z-10 flex items-start justify-between">

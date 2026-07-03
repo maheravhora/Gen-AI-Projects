@@ -26,7 +26,7 @@ export default function HistoryCard({ item, onDelete, onToggleFavorite, delay = 
       exit={{ opacity: 0, x: -50 }}
       transition={{ delay, duration: 0.3 }}
       layout
-      className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-5 hover:border-white/12 transition-colors"
+      className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-5 shadow-md shadow-black/20 hover:border-white/12 transition-colors overflow-hidden"
     >
       <div className="flex items-start justify-between gap-4 mb-3">
         <div className="flex items-center gap-2 text-xs text-[#94A3B8]">
@@ -57,36 +57,36 @@ export default function HistoryCard({ item, onDelete, onToggleFavorite, delay = 
       <div className="flex items-center gap-2">
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
+          className="flex min-h-[36px] items-center gap-1 rounded-lg bg-white/5 px-3 py-1.5 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
         >
           {copied ? (
-            <HiOutlineCheckCircle className="h-3.5 w-3.5 text-[#10B981]" />
+            <HiOutlineCheckCircle className="h-4 w-4 text-[#10B981]" />
           ) : (
-            <HiOutlineClipboardDocument className="h-3.5 w-3.5" />
+            <HiOutlineClipboardDocument className="h-4 w-4" />
           )}
           {copied ? 'Copied' : 'Copy'}
         </button>
         <button
           onClick={() => onToggleFavorite?.(item.id)}
-          className={`flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs transition-colors cursor-pointer border-none ${
+          className={`flex min-h-[36px] items-center gap-1 rounded-lg px-3 py-1.5 text-xs transition-colors cursor-pointer border-none ${
             item.is_favorite
               ? 'bg-[#EF4444]/10 text-[#EF4444]'
               : 'bg-white/5 text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC]'
           }`}
         >
           {item.is_favorite ? (
-            <HiHeart className="h-3.5 w-3.5" />
+            <HiHeart className="h-4 w-4" />
           ) : (
-            <HiOutlineHeart className="h-3.5 w-3.5" />
+            <HiOutlineHeart className="h-4 w-4" />
           )}
           {item.is_favorite ? 'Favorited' : 'Favorite'}
         </button>
         <div className="flex-1" />
         <button
           onClick={() => onDelete?.(item.id)}
-          className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-[#94A3B8] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors cursor-pointer border-none"
+          className="flex min-h-[36px] items-center gap-1 rounded-lg bg-white/5 px-3 py-1.5 text-xs text-[#94A3B8] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors cursor-pointer border-none"
         >
-          <HiOutlineTrash className="h-3.5 w-3.5" />
+          <HiOutlineTrash className="h-4 w-4" />
           Delete
         </button>
       </div>

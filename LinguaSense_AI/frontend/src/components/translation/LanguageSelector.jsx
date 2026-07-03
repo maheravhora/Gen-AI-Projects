@@ -46,11 +46,13 @@ export default function LanguageSelector({ value, onChange, showAutoDetect = fal
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center gap-2 rounded-xl border border-white/8 bg-[#1E293B] px-4 py-2.5 text-sm text-[#F8FAFC] transition-all hover:border-white/15 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/50 cursor-pointer"
+        className="flex w-full min-h-[48px] items-center justify-between gap-2 rounded-xl border border-white/8 bg-[#1E293B] px-4 py-3 text-sm text-[#F8FAFC] transition-all hover:border-white/15 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/50 cursor-pointer"
       >
-        <span className="text-base">{selectedLang.flag}</span>
-        <span className="flex-1 text-left truncate">{selectedLang.name}</span>
-        <HiOutlineChevronDown className={`h-4 w-4 text-[#94A3B8] transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <div className="flex items-center gap-2 truncate">
+          <span className="text-base">{selectedLang.flag}</span>
+          <span className="truncate">{selectedLang.name}</span>
+        </div>
+        <HiOutlineChevronDown className={`h-4 w-4 shrink-0 text-[#94A3B8] transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -99,7 +101,7 @@ export default function LanguageSelector({ value, onChange, showAutoDetect = fal
                       setIsOpen(false);
                       setSearch('');
                     }}
-                    className={`flex w-full items-center gap-3 px-4 py-2 text-sm transition-colors cursor-pointer border-none ${
+                    className={`flex w-full min-h-[40px] items-center gap-3 px-4 py-2 text-sm transition-colors cursor-pointer border-none ${
                       value === lang.code
                         ? 'bg-[#2563EB]/15 text-[#3B82F6]'
                         : 'text-[#F8FAFC] hover:bg-white/5'

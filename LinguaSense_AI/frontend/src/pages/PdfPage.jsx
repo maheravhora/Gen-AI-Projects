@@ -45,24 +45,28 @@ export default function PdfPage() {
       </motion.div>
 
       <motion.div variants={staggerItem} className="grid gap-6 lg:grid-cols-2">
-        <Card padding="lg">
-          <label className="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-white/15 py-16 cursor-pointer hover:border-primary/40 hover:bg-white/[0.02] transition-all">
-            <HiDocumentText className="h-10 w-10 text-text-secondary" />
-            <div className="text-center">
-              <p className="text-sm font-semibold text-text-primary">
-                {file ? file.name : 'Upload a PDF'}
-              </p>
-              <p className="text-xs text-text-secondary mt-1">PDF up to 20MB</p>
-            </div>
-            <input type="file" accept=".pdf" onChange={handleFileChange} className="hidden" />
-          </label>
+        <Card padding="lg" className="flex flex-col justify-between">
+          <div>
+            <label className="flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-white/15 py-16 cursor-pointer hover:border-primary/40 hover:bg-white/[0.02] transition-all bg-[#1E293B]/30">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+                <HiDocumentText className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-semibold text-text-primary">
+                  {file ? file.name : 'Upload a PDF Document'}
+                </p>
+                <p className="text-xs text-text-secondary mt-1">PDF format up to 20MB</p>
+              </div>
+              <input type="file" accept=".pdf" onChange={handleFileChange} className="hidden" />
+            </label>
+          </div>
 
           {file && (
-            <div className="mt-4 flex gap-3">
-              <Button variant="primary" onClick={handleExtract} isLoading={isLoading} leftIcon={<HiArrowUpTray className="h-4 w-4" />} className="flex-1">
+            <div className="mt-6 flex gap-3">
+              <Button variant="primary" size="md" onClick={handleExtract} isLoading={isLoading} leftIcon={<HiArrowUpTray className="h-5 w-5" />} className="flex-1">
                 Extract Text
               </Button>
-              <Button variant="ghost" onClick={() => { setFile(null); setExtractedText(''); setError(null) }} leftIcon={<HiXMark className="h-4 w-4" />}>
+              <Button variant="ghost" size="md" onClick={() => { setFile(null); setExtractedText(''); setError(null) }} leftIcon={<HiXMark className="h-5 w-5" />}>
                 Clear
               </Button>
             </div>
@@ -72,11 +76,13 @@ export default function PdfPage() {
 
         <Card padding="lg" header="Extracted Text">
           {extractedText ? (
-            <div className="max-h-[500px] overflow-y-auto">
-              <p className="text-sm leading-relaxed text-text-primary whitespace-pre-wrap">{extractedText}</p>
+            <div className="p-4 rounded-xl bg-white/5 border border-white/8 min-h-[200px] max-h-[500px] overflow-y-auto">
+              <p className="text-sm leading-relaxed text-text-primary whitespace-pre-wrap break-words">{extractedText}</p>
             </div>
           ) : (
-            <p className="text-sm text-text-secondary/50 py-8 text-center">Extracted text will appear here…</p>
+            <div className="flex flex-col items-center justify-center py-16 text-center text-text-secondary/50">
+              <p className="text-sm">Extracted text will appear here…</p>
+            </div>
           )}
         </Card>
       </motion.div>

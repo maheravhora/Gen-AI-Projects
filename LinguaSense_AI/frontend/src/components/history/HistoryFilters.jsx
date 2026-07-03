@@ -17,7 +17,7 @@ export default function HistoryFilters({ search, onSearchChange, languageFilter,
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search translations..."
-          className="w-full rounded-xl border border-white/8 bg-[#1E293B] pl-10 pr-4 py-2.5 text-sm text-[#F8FAFC] placeholder-[#94A3B8] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 transition-all"
+          className="w-full min-h-[48px] rounded-xl border border-white/8 bg-[#1E293B] pl-10 pr-4 py-3 text-sm text-[#F8FAFC] placeholder-[#94A3B8] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 transition-all"
         />
         {search && (
           <button
@@ -33,7 +33,7 @@ export default function HistoryFilters({ search, onSearchChange, languageFilter,
       <select
         value={languageFilter}
         onChange={(e) => onLanguageFilterChange(e.target.value)}
-        className="rounded-xl border border-white/8 bg-[#1E293B] px-4 py-2.5 text-sm text-[#F8FAFC] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 cursor-pointer appearance-none min-w-[160px]"
+        className="min-h-[48px] rounded-xl border border-white/8 bg-[#1E293B] px-4 py-3 text-sm text-[#F8FAFC] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 cursor-pointer appearance-none min-w-[160px]"
       >
         <option value="">All Languages</option>
         {languages.filter((l) => l.code !== 'auto').slice(0, 30).map((lang) => (
@@ -47,7 +47,7 @@ export default function HistoryFilters({ search, onSearchChange, languageFilter,
       <select
         value={dateFilter}
         onChange={(e) => onDateFilterChange(e.target.value)}
-        className="rounded-xl border border-white/8 bg-[#1E293B] px-4 py-2.5 text-sm text-[#F8FAFC] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 cursor-pointer appearance-none min-w-[140px]"
+        className="min-h-[48px] rounded-xl border border-white/8 bg-[#1E293B] px-4 py-3 text-sm text-[#F8FAFC] outline-none focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 cursor-pointer appearance-none min-w-[140px]"
       >
         <option value="">All Time</option>
         <option value="today">Today</option>

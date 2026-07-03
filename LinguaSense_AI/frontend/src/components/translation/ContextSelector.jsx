@@ -20,10 +20,10 @@ export default function ContextSelector({ value, onChange }) {
             key={ctx.id}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onChange(ctx.id)}
+            onClick={() => onChange(ctx.id === 'it' ? 'IT' : ctx.label)}
             type="button"
-            className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium transition-all cursor-pointer border ${
-              value === ctx.id
+            className={`flex min-h-[44px] items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-medium transition-all cursor-pointer border ${
+              value?.toLowerCase() === ctx.id.toLowerCase() || (value === 'IT' && ctx.id === 'it')
                 ? 'bg-[#06B6D4]/15 text-[#06B6D4] border-[#06B6D4]/30 shadow-md shadow-[#06B6D4]/10'
                 : 'bg-white/5 text-[#94A3B8] border-white/8 hover:bg-white/10 hover:text-[#F8FAFC]'
             }`}

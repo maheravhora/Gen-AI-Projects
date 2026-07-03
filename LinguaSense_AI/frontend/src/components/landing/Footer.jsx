@@ -60,7 +60,7 @@ export default function Footer() {
             </p>
             <Link
               to="/translate"
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-3 text-base font-semibold text-[#2563EB] shadow-lg transition-all hover:shadow-xl hover:scale-105 no-underline"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3.5 min-h-[48px] text-base font-semibold text-[#2563EB] shadow-lg transition-all hover:shadow-xl hover:scale-105 no-underline cursor-pointer"
             >
               Start Translating Free
             </Link>
@@ -89,10 +89,10 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-[#94A3B8] transition-all hover:bg-white/10 hover:text-[#F8FAFC]"
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-white/5 p-2 text-[#94A3B8] transition-all hover:bg-white/10 hover:text-[#F8FAFC] cursor-pointer"
                     aria-label={social.label}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-5 w-5" />
                   </a>
                 );
               })}

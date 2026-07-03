@@ -1,23 +1,21 @@
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { HiCamera, HiArrowUpTray, HiXMark } from 'react-icons/hi2'
+import { HiArrowUpTray } from 'react-icons/hi2'
 import { staggerContainer, staggerItem } from '../animations/variants'
 import Card from '../components/common/Card'
 import Button from '../components/common/Button'
+import DragDropUpload from '../components/ocr/DragDropUpload'
 import { extractOcr } from '../services/api'
 
 export default function OcrPage() {
   const [file, setFile] = useState(null)
-  const [preview, setPreview] = useState(null)
   const [extractedText, setExtractedText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const handleFileChange = useCallback((e) => {
-    const selected = e.target.files?.[0]
-    if (selected) {
-      setFile(selected)
-      setPreview(URL.createObjectURL(selected))
+  const handleFileSelect = useCallback((selected) => {
+    setFile(selected)
+    if (!selected) {
       setExtractedText('')
       setError(null)
     }
@@ -39,44 +37,23 @@ export default function OcrPage() {
     }
   }, [file])
 
-  const clearAll = () => {
-    setFile(null)
-    setPreview(null)
-    setExtractedText('')
-    setError(null)
-  }
-
   return (
     <motion.div variants={staggerContainer} initial="initial" animate="animate" className="space-y-6">
       <motion.div variants={staggerItem}>
         <h2 className="text-2xl font-bold text-text-primary">OCR Scanner</h2>
-        <p className="mt-1 text-text-secondary">Extract text from images using AI-powered OCR.</p>
+        <p className="mt-1 text-text-secondary">Extract text from images using AI-powered optical character recognition.</p>
       </motion.div>
 
       <motion.div variants={staggerItem} className="grid gap-6 lg:grid-cols-2">
         {/* Upload area */}
-        <Card padding="lg">
-          {!preview ? (
-            <label className="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-white/15 py-16 cursor-pointer hover:border-primary/40 hover:bg-white/[0.02] transition-all">
-              <HiCamera className="h-10 w-10 text-text-secondary" />
-              <div className="text-center">
-                <p className="text-sm font-semibold text-text-primary">Upload an image</p>
-                <p className="text-xs text-text-secondary mt-1">PNG, JPG, WEBP up to 10MB</p>
-              </div>
-              <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
-            </label>
-          ) : (
-            <div className="relative">
-              <img src={preview} alt="Preview" className="w-full rounded-xl object-contain max-h-80" />
-              <button onClick={clearAll} className="absolute top-2 right-2 rounded-lg bg-black/60 p-1.5 text-white hover:bg-black/80 transition-colors">
-                <HiXMark className="h-4 w-4" />
-              </button>
-            </div>
-          )}
+        <Card padding="lg" className="flex flex-col justify-between">
+          <div>
+            <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" label="Upload Image for OCR" />
+          </div>
 
           {file && (
-            <div className="mt-4">
-              <Button variant="primary" onClick={handleExtract} isLoading={isLoading} leftIcon={<HiArrowUpTray className="h-4 w-4" />} className="w-full">
+            <div className="mt-6">
+              <Button variant="primary" onClick={handleExtract} isLoading={isLoading} leftIcon={<HiArrowUpTray className="h-5 w-5" />} className="w-full">
                 Extract Text
               </Button>
             </div>
@@ -87,9 +64,13 @@ export default function OcrPage() {
         {/* Result */}
         <Card padding="lg" header="Extracted Text">
           {extractedText ? (
-            <p className="text-sm leading-relaxed text-text-primary whitespace-pre-wrap">{extractedText}</p>
+            <div className="p-4 rounded-xl bg-white/5 border border-white/8 min-h-[200px]">
+              <p className="text-sm leading-relaxed text-text-primary whitespace-pre-wrap break-words">{extractedText}</p>
+            </div>
           ) : (
-            <p className="text-sm text-text-secondary/50 py-8 text-center">Extracted text will appear here…</p>
+            <div className="flex flex-col items-center justify-center py-16 text-center text-text-secondary/50">
+              <p className="text-sm">Extracted text will appear here…</p>
+            </div>
           )}
         </Card>
       </motion.div>

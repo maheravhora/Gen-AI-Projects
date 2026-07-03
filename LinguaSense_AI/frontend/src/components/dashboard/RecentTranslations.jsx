@@ -5,7 +5,7 @@ import { getLanguageName, getLanguageFlag } from '../../utils/languages';
 export default function RecentTranslations({ translations = [] }) {
   if (translations.length === 0) {
     return (
-      <div className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 text-center">
+      <div className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 text-center shadow-md shadow-black/20 overflow-hidden">
         <HiOutlineClock className="h-12 w-12 text-[#94A3B8]/30 mx-auto mb-3" />
         <h3 className="text-sm font-medium text-[#F8FAFC] mb-1">No Recent Translations</h3>
         <p className="text-xs text-[#94A3B8]">Start translating to see your history here.</p>
@@ -14,7 +14,7 @@ export default function RecentTranslations({ translations = [] }) {
   }
 
   return (
-    <div className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm overflow-hidden">
+    <div className="rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm shadow-md shadow-black/20 overflow-hidden">
       <div className="flex items-center justify-between px-6 py-4 border-b border-white/8">
         <h3 className="text-sm font-semibold text-[#F8FAFC]">Recent Translations</h3>
         <span className="text-xs text-[#94A3B8]">{translations.length} results</span>

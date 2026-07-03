@@ -67,7 +67,7 @@ function AnalysisSection({ title, icon: Icon, children, delay = 0, iconColor = '
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4, ease: 'easeOut' }}
-      className="rounded-xl border border-white/8 bg-[#1E293B]/50 backdrop-blur-sm p-4"
+      className="rounded-xl border border-white/8 bg-[#1E293B]/50 backdrop-blur-sm p-4 shadow-md shadow-black/20 overflow-hidden"
     >
       <div className="flex items-center gap-2 mb-3">
         <Icon className={`h-4 w-4 ${iconColor}`} />
@@ -85,12 +85,9 @@ export default function AnalysisPanel({ analysis, isLoading = false }) {
     return (
       <div className="space-y-4">
         {[...Array(6)].map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{ opacity: 0.3 }}
-            animate={{ opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.1 }}
-            className="h-24 rounded-xl bg-[#1E293B]/50 border border-white/5"
+            className="skeleton h-24 rounded-xl border border-white/5"
           />
         ))}
       </div>
@@ -338,7 +335,7 @@ export default function AnalysisPanel({ analysis, isLoading = false }) {
         transition={{ delay: 1.1 }}
         onClick={handleReadAloud}
         type="button"
-        className="w-full flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-[#1E293B]/50 px-4 py-3 text-sm font-medium text-[#F8FAFC] hover:bg-white/5 transition-colors cursor-pointer"
+        className="w-full min-h-[44px] flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-[#1E293B]/50 px-4 py-3 text-sm font-medium text-[#F8FAFC] hover:bg-white/5 transition-colors cursor-pointer"
       >
         <HiOutlineSpeakerWave className="h-4 w-4 text-[#3B82F6]" />
         Read Translation Aloud
@@ -353,39 +350,39 @@ export default function AnalysisPanel({ analysis, isLoading = false }) {
       >
         <button
           onClick={handleCopy}
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
+          className="flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
         >
           {copied ? (
-            <HiOutlineCheckCircle className="h-3.5 w-3.5 text-[#10B981]" />
+            <HiOutlineCheckCircle className="h-4 w-4 text-[#10B981]" />
           ) : (
-            <HiOutlineClipboardDocument className="h-3.5 w-3.5" />
+            <HiOutlineClipboardDocument className="h-4 w-4" />
           )}
           {copied ? 'Copied!' : 'Copy'}
         </button>
         <button
           onClick={handleDownloadTxt}
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
+          className="flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
         >
-          <HiOutlineArrowDownTray className="h-3.5 w-3.5" />
+          <HiOutlineArrowDownTray className="h-4 w-4" />
           TXT
         </button>
         <button
           onClick={handleDownloadPdf}
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
+          className="flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
         >
-          <HiOutlineArrowDownTray className="h-3.5 w-3.5" />
+          <HiOutlineArrowDownTray className="h-4 w-4" />
           PDF
         </button>
         <button
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
+          className="flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#1E293B]/50 px-3 py-2.5 text-xs font-medium text-[#94A3B8] hover:bg-white/5 hover:text-[#F8FAFC] transition-colors cursor-pointer"
         >
-          <HiOutlineHeart className="h-3.5 w-3.5" />
+          <HiOutlineHeart className="h-4 w-4" />
           Favorite
         </button>
         <button
-          className="col-span-2 sm:col-span-2 flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#2563EB]/10 px-3 py-2.5 text-xs font-medium text-[#3B82F6] hover:bg-[#2563EB]/15 transition-colors cursor-pointer"
+          className="col-span-2 sm:col-span-2 flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-[#2563EB]/10 px-3 py-2.5 text-xs font-medium text-[#3B82F6] hover:bg-[#2563EB]/15 transition-colors cursor-pointer"
         >
-          <HiOutlineArrowPath className="h-3.5 w-3.5" />
+          <HiOutlineArrowPath className="h-4 w-4" />
           Regenerate Translation
         </button>
       </motion.div>

@@ -29,8 +29,12 @@ export default function FavoritesPage() {
                     {item.favoritedAt && ` · ${formatDate(item.favoritedAt)}`}
                   </p>
                 </div>
-                <button onClick={() => removeFavorite(item.id)} className="ml-2 shrink-0 rounded-lg p-1.5 text-warning hover:bg-white/5 transition-colors">
-                  <HiStar className="h-4 w-4 fill-current" />
+                <button
+                  onClick={() => removeFavorite(item.id)}
+                  className="ml-2 shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg p-2 text-warning hover:bg-white/10 transition-colors cursor-pointer border-none bg-transparent"
+                  aria-label="Remove favorite"
+                >
+                  <HiStar className="h-5 w-5 fill-current" />
                 </button>
               </div>
             </Card>

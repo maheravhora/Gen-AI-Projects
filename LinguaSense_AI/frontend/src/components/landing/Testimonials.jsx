@@ -59,7 +59,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 flex flex-col"
+              className="relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 flex flex-col shadow-lg shadow-black/20 overflow-hidden"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">

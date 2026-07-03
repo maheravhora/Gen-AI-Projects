@@ -47,7 +47,7 @@ export default function Modal({
                 <h2 className="text-lg font-semibold text-text-primary">{title}</h2>
                 <button
                   onClick={onClose}
-                  className="rounded-lg p-1.5 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors"
+                  className="rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <HiXMark className="h-5 w-5" />
@@ -62,7 +62,7 @@ export default function Modal({
             {!title && (
               <button
                 onClick={onClose}
-                className="absolute right-3 top-3 rounded-lg p-1.5 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors"
+                className="absolute right-3 top-3 rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <HiXMark className="h-5 w-5" />

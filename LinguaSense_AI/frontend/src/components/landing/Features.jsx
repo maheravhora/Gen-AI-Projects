@@ -106,7 +106,7 @@ export default function Features() {
                 key={feature.title}
                 variants={cardVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className={`group relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 transition-all duration-300 hover:border-white/15 hover:${feature.shadowColor} hover:shadow-xl cursor-default`}
+                className={`group relative rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-8 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 hover:border-white/15 hover:${feature.shadowColor} hover:shadow-xl cursor-default`}
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />

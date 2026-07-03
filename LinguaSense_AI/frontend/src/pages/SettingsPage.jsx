@@ -24,7 +24,7 @@ export default function SettingsPage() {
               <select
                 value={settings.defaultSourceLang}
                 onChange={(e) => updateSettings({ defaultSourceLang: e.target.value })}
-                className="w-full h-10 rounded-xl border border-white/8 bg-white/5 px-3 text-sm text-text-primary outline-none focus:border-primary/50"
+                className="w-full min-h-[48px] rounded-xl border border-white/8 bg-white/5 px-3 py-3 text-sm text-text-primary outline-none focus:border-primary/50 cursor-pointer"
               >
                 {LANGUAGES.map((l) => <option key={l.code} value={l.code} className="bg-card">{l.name}</option>)}
               </select>
@@ -34,7 +34,7 @@ export default function SettingsPage() {
               <select
                 value={settings.defaultTargetLang}
                 onChange={(e) => updateSettings({ defaultTargetLang: e.target.value })}
-                className="w-full h-10 rounded-xl border border-white/8 bg-white/5 px-3 text-sm text-text-primary outline-none focus:border-primary/50"
+                className="w-full min-h-[48px] rounded-xl border border-white/8 bg-white/5 px-3 py-3 text-sm text-text-primary outline-none focus:border-primary/50 cursor-pointer"
               >
                 {LANGUAGES.map((l) => <option key={l.code} value={l.code} className="bg-card">{l.name}</option>)}
               </select>
@@ -44,7 +44,7 @@ export default function SettingsPage() {
               <select
                 value={settings.defaultTone}
                 onChange={(e) => updateSettings({ defaultTone: e.target.value })}
-                className="w-full h-10 rounded-xl border border-white/8 bg-white/5 px-3 text-sm text-text-primary outline-none focus:border-primary/50"
+                className="w-full min-h-[48px] rounded-xl border border-white/8 bg-white/5 px-3 py-3 text-sm text-text-primary outline-none focus:border-primary/50 cursor-pointer"
               >
                 {TONES.map((t) => <option key={t} value={t} className="bg-card">{t}</option>)}
               </select>
@@ -54,7 +54,7 @@ export default function SettingsPage() {
               <select
                 value={settings.defaultContext}
                 onChange={(e) => updateSettings({ defaultContext: e.target.value })}
-                className="w-full h-10 rounded-xl border border-white/8 bg-white/5 px-3 text-sm text-text-primary outline-none focus:border-primary/50"
+                className="w-full min-h-[48px] rounded-xl border border-white/8 bg-white/5 px-3 py-3 text-sm text-text-primary outline-none focus:border-primary/50 cursor-pointer"
               >
                 {CONTEXTS.map((c) => <option key={c} value={c} className="bg-card">{c}</option>)}
               </select>
@@ -70,11 +70,12 @@ export default function SettingsPage() {
               { key: 'autoDetect', label: 'Auto-detect source language' },
               { key: 'saveHistory', label: 'Save translation history' },
             ].map(({ key, label }) => (
-              <label key={key} className="flex items-center justify-between cursor-pointer">
+              <label key={key} className="flex min-h-[44px] items-center justify-between cursor-pointer">
                 <span className="text-sm text-text-primary">{label}</span>
                 <button
+                  type="button"
                   onClick={() => updateSettings({ [key]: !settings[key] })}
-                  className={`relative h-6 w-11 rounded-full transition-colors ${settings[key] ? 'bg-primary' : 'bg-white/20'}`}
+                  className={`relative h-6 w-11 rounded-full transition-colors cursor-pointer border-none ${settings[key] ? 'bg-primary' : 'bg-white/20'}`}
                 >
                   <span className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${settings[key] ? 'translate-x-5' : ''}`} />
                 </button>

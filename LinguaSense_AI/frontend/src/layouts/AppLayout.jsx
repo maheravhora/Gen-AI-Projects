@@ -134,7 +134,7 @@ export default function AppLayout() {
         {/* Collapse toggle */}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="flex h-12 items-center justify-center border-t border-white/8 text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
+          className="flex min-h-[48px] items-center justify-center border-t border-white/8 text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors cursor-pointer"
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {collapsed ? (
@@ -174,7 +174,7 @@ export default function AppLayout() {
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg p-1.5 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors"
+                  className="rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors cursor-pointer"
                 >
                   <HiXMark className="h-5 w-5" />
                 </button>
@@ -218,7 +218,7 @@ export default function AppLayout() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="rounded-lg p-2 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors lg:hidden"
+            className="rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-text-secondary hover:bg-white/10 hover:text-text-primary transition-colors cursor-pointer lg:hidden"
             aria-label="Open menu"
           >
             <HiBars3 className="h-5 w-5" />
@@ -233,7 +233,7 @@ export default function AppLayout() {
             <input
               type="text"
               placeholder="Search anything…"
-              className="h-9 w-56 rounded-xl border border-white/8 bg-white/5 pl-9 pr-4 text-sm text-text-primary placeholder:text-text-secondary/60 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
+              className="h-10 w-56 rounded-xl border border-white/8 bg-white/5 pl-9 pr-4 text-sm text-text-primary placeholder:text-text-secondary/60 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
             />
           </div>
         </header>
@@ -246,7 +246,7 @@ export default function AppLayout() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8"
+            className="mx-auto w-full max-w-7xl px-4 pt-6 pb-24 sm:px-6 lg:px-8 lg:py-8"
           >
             <Outlet />
           </motion.div>

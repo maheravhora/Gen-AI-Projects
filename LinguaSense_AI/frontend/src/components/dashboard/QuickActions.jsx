@@ -56,7 +56,7 @@ export default function QuickActions() {
           >
             <Link
               to={action.path}
-              className={`group flex flex-col items-center gap-3 rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-6 text-center no-underline transition-all hover:border-white/15 hover:shadow-xl hover:${action.shadow} hover:-translate-y-1`}
+              className={`group flex flex-col items-center gap-3 rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm p-6 text-center no-underline transition-all hover:border-white/15 shadow-md shadow-black/20 hover:shadow-xl hover:-translate-y-1 overflow-hidden`}
             >
               <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${action.color} shadow-lg ${action.shadow} transition-transform group-hover:scale-110`}>
                 <Icon className="h-7 w-7 text-white" />

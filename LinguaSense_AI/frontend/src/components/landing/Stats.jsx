@@ -70,7 +70,7 @@ export default function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="relative group rounded-2xl border border-white/8 bg-[#1E293B]/40 backdrop-blur-sm p-8 text-center"
+                className="relative group rounded-2xl border border-white/8 bg-[#1E293B]/40 backdrop-blur-sm p-8 text-center shadow-lg shadow-black/20 overflow-hidden"
               >
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 <div className="relative z-10">

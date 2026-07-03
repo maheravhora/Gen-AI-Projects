@@ -13,7 +13,7 @@ export default function TranslationInput({ value, onChange, onClear, maxLength =
         maxLength={maxLength}
         placeholder={placeholder}
         rows={8}
-        className="w-full resize-none rounded-2xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm px-5 py-4 text-base text-[#F8FAFC] placeholder-[#94A3B8]/60 outline-none transition-all focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 scrollbar-thin"
+        className="w-full resize-none rounded-xl border border-white/8 bg-[#1E293B]/60 backdrop-blur-sm px-5 pt-4 pb-12 text-base text-[#F8FAFC] placeholder-[#94A3B8]/60 outline-none transition-all focus:border-[#2563EB]/40 focus:ring-2 focus:ring-[#2563EB]/20 scrollbar-thin"
       />
       <div className="absolute bottom-3 left-5 right-5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -23,9 +23,9 @@ export default function TranslationInput({ value, onChange, onClear, maxLength =
               animate={{ opacity: 1, scale: 1 }}
               onClick={onClear}
               type="button"
-              className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
+              className="flex min-h-[44px] items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-[#F8FAFC] hover:bg-[#EF4444]/20 hover:text-[#EF4444] transition-colors cursor-pointer border-none"
             >
-              <HiOutlineXMark className="h-3 w-3" />
+              <HiOutlineXMark className="h-4 w-4" />
               Clear
             </motion.button>
           )}

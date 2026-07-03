@@ -28,7 +28,7 @@ export default function Card({
 
   return (
     <Wrapper
-      className={`rounded-2xl border border-white/8 bg-[#1E293B]/80 backdrop-blur-xl transition-shadow ${
+      className={`rounded-2xl border border-white/8 bg-[#1E293B]/80 backdrop-blur-xl shadow-lg shadow-black/20 overflow-hidden transition-shadow ${
         hoverable ? 'cursor-pointer hover:shadow-xl hover:shadow-primary/5' : ''
       } ${className}`}
       {...motionProps}

@@ -40,16 +40,13 @@ export default function TranslationOutput({ text, targetLanguage, isLoading = fa
 
   return (
     <div className="relative">
-      <div className="min-h-[200px] rounded-2xl border border-white/8 bg-[#1E293B]/40 backdrop-blur-sm px-5 py-4">
+      <div className="min-h-[200px] rounded-xl border border-white/8 bg-[#1E293B]/40 backdrop-blur-sm px-5 pt-4 pb-14">
         {isLoading ? (
           <div className="space-y-3">
             {[...Array(4)].map((_, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0.3 }}
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
-                className="h-4 rounded-lg bg-white/10"
+                className="skeleton h-4 rounded-lg"
                 style={{ width: `${80 - i * 15}%` }}
               />
             ))}
@@ -66,36 +63,36 @@ export default function TranslationOutput({ text, targetLanguage, isLoading = fa
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute bottom-3 right-3 flex items-center gap-1"
+          className="absolute bottom-3 right-3 flex items-center gap-1.5"
         >
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
+            className="flex min-h-[44px] items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-[#F8FAFC] hover:bg-white/20 transition-colors cursor-pointer border-none"
           >
             {copied ? (
               <>
-                <HiOutlineCheckCircle className="h-3.5 w-3.5 text-[#10B981]" />
+                <HiOutlineCheckCircle className="h-4 w-4 text-[#10B981]" />
                 <span className="text-[#10B981]">Copied</span>
               </>
             ) : (
               <>
-                <HiOutlineClipboardDocument className="h-3.5 w-3.5" />
+                <HiOutlineClipboardDocument className="h-4 w-4" />
                 Copy
               </>
             )}
           </button>
           <button
             onClick={handleSpeak}
-            className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
+            className="flex min-h-[44px] items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-[#F8FAFC] hover:bg-white/20 transition-colors cursor-pointer border-none"
           >
-            <HiOutlineSpeakerWave className="h-3.5 w-3.5" />
+            <HiOutlineSpeakerWave className="h-4 w-4" />
             Speak
           </button>
           <button
             onClick={handleDownload}
-            className="flex items-center gap-1 rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-[#94A3B8] hover:bg-white/10 hover:text-[#F8FAFC] transition-colors cursor-pointer border-none"
+            className="flex min-h-[44px] items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-[#F8FAFC] hover:bg-white/20 transition-colors cursor-pointer border-none"
           >
-            <HiOutlineArrowDownTray className="h-3.5 w-3.5" />
+            <HiOutlineArrowDownTray className="h-4 w-4" />
             TXT
           </button>
         </motion.div>

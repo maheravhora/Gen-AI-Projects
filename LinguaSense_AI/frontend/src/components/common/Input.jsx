@@ -42,9 +42,9 @@ const Input = forwardRef(function Input(
         <input
           ref={ref}
           id={inputId}
-          className={`w-full rounded-xl px-4 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-200 ${
+          className={`w-full min-h-[48px] rounded-xl px-4 py-3 text-[15px] text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-200 ${
             VARIANT_STYLES[variant]
-          } ${icon ? 'pl-10' : ''} ${
+          } ${icon ? 'pl-11' : ''} ${
             error ? 'border-danger/60 focus:border-danger focus:ring-danger/30' : ''
           } ${className}`}
           {...props}
